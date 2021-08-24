@@ -10,14 +10,14 @@ The images are based on alpine:3.14 and provide Mojolicious installed together w
 # Supported tags and respective Dockerfile links
 
 * Mojolicious: [1.0, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile) (size: **48MB**)
-* Mojolicious: [1.0-minion, minion (minion/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion/Dockerfile) (size: **52MB**)
-with library
-	* [Minion](https://metacpan.org/pod/Minion).
 * Mojolicious: [1.0-minion-mongodb, minion-mongodb (minion-mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion-mongodb/Dockerfile) (size: **101MB**)
 with library
 	* [Minion::Backend::MongoDB](https://metacpan.org/pod/Minion::Backend::MongoDB),
 	* [Mojolicious::Plugin::Mongodbv2](https://metacpan.org/pod/Mojolicious::Plugin::Mongodbv2),
 	* [Mojolicious::Plugin::Minion](https://metacpan.org/pod/Mojolicious::Plugin::Minion).
+* Mojolicious: [1.0-minion, minion (minion/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion/Dockerfile) (size: **52MB**)
+with library
+	* [Minion](https://metacpan.org/pod/Minion).
 
 # How to use this image
 
@@ -31,11 +31,11 @@ structure with you as the owner.
 Start the application as daemon.
 
     $ cd my_app
-    $ docker container run -d --rm -v "$(pwd):/usr/src/app" -p 3000:3000 tekki/mojolicious morbo script/my_app
+    $ docker container run -d --rm -v "$(pwd):/usr/src/app" -p 3000:3000 ebruni/mojolicious morbo script/my_app
 
 To run the container in the foreground and read the output, omit the `-d` and add `-ti`
 
-    $ docker container run --rm -ti -v "$(pwd):/usr/src/app" -p 3000:3000 tekki/mojolicious morbo script/my_app
+    $ docker container run --rm -ti -v "$(pwd):/usr/src/app" -p 3000:3000 ebruni/mojolicious morbo script/my_app
 
 Browse to [localhost:3000](http://localhost:3000) and edit the code in the
 current folder. If you are on Linux or MacOS, the server will restart whenever
@@ -44,7 +44,7 @@ you change a file. On Windows this works if you use Docker Desktop with WSL 2.
 To switch from development to production an run the application as daemon in
 the full featured non-blocking web server start it with
 
-    $ docker container run -d --rm -v "$(pwd):/usr/src/app" -p 3000:3000 tekki/mojolicious script/my_app prefork
+    $ docker container run -d --rm -v "$(pwd):/usr/src/app" -p 3000:3000 ebruni/mojolicious script/my_app prefork
 
 # Source
 
