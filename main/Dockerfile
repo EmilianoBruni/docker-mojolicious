@@ -3,7 +3,7 @@
 # AUTHOR  :  Emiliano Bruni <info@ebruni.it>
 # DATE    :  2021-07-28
 # PURPOSE :
-#   Based on alpine, it has minimum component to run [Mojolicious](https://mojolicious.org), a real-time web framework and web development toolkit written in [Perl](https://www.perl.org).
+#   Minimum components to run [Mojolicious](https://mojolicious.org), a real-time web framework and web development toolkit written in [Perl](https://www.perl.org).
 #
 #   This image is published in docker hub with handle: ebruni/mojolicious
 #
@@ -18,7 +18,7 @@
 #
 
 #
-# this file is generated via docker-builder/generate.pl
+# this file is generated via docker-builder
 #
 # do not edit it directly
 #
@@ -55,7 +55,7 @@ RUN apk update && apk add --no-cache \
 ARG NOW=not-set
 LABEL org.opencontainers.image.authors="Emiliano Bruni <info@ebruni.it>"
 LABEL org.opencontainers.image.created=$NOW
-LABEL org.opencontainers.image.description="Based on alpine, it has minimum component to run Mojolicious, a real-time web framework and web development toolkit written in Perl."
+LABEL org.opencontainers.image.description="Minimum components to run Mojolicious, a real-time web framework and web development toolkit written in Perl."
 LABEL org.opencontainers.image.documentation=https://github.com/EmilianoBruni/docker-mojolicious/blob/master/README.pod
 LABEL org.opencontainers.image.licenses=Artistic-2.0
 LABEL org.opencontainers.image.source=https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile
