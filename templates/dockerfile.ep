@@ -1,0 +1,68 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+# AUTHOR  :  <%= $global->{author}->{name} . ' <' . $global->{author}->{mail} . '>' %>
+# DATE    :  2021-07-28
+# PURPOSE :
+#   <%= $global->{description} %>
+#
+#   This image is published in docker hub with handle: <%= $docker->{image} %>
+#
+# USAGE:
+#   docker build -t <%= $docker->{project} %> .
+#
+# UPDATES:
+#   AUTHOR          DATE        VERSION   COMMENTS
+% for ($docker->{history}->@*) {
+#   <%= $global->{author}->{name} %>  <%= $_->{date} %>  <%= $_->{version} %>       <%= $_->{comment} %>
+% }
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+%= $warning
+FROM <%= $from %> as builder
+MAINTAINER <%= $global->{author}->{name} . ' <' . $global->{author}->{mail} . '>' %>
+
+WORKDIR <%= $global->{app_folder} %>
+EXPOSE <%= $global->{publish} %>
+
+RUN apk update && apk add --no-cache \\
+% for ($global->{os_packages}->@*) {
+    <%= $_ %> \\
+% }
+  && cpanm --no-wget \\
+% for ($global->{perl_modules}->@*) {
+    <%= $_ %> \\
+% }
+  && rm -r /root/.cpanm \\
+% if ($release->{env}) {
+%   for my $key (sort keys $release->{env}->%*) {
+ENV <%= "$key $release->{env}{$key}" %>
+%   }
+% }
+% if ($release->{packages}) {
+ && apk add --no-cache \\
+%   for ($release->{packages}->@*) {
+    <%= $_ %> \\
+%   }
+% }
+% if ($release->{perl_modules}) {
+&& cpanm --no-wget \\
+% for ($release->{perl_modules}->@*) {
+    <%= $_ %> \\
+% }
+  && rm -r /root/.cpanm \\
+% }
+% if ($global->{os_packages_clear} || $release->{os_packages_clear}) {
+  && apk del \\
+%   for ($global->{os_packages_clear}->@*) {
+    <%= $_ %> \\
+%   }
+%   for ($release->{os_packages_clear}->@*) {
+    <%= $_ %> \\
+%   }
+% }
+  && true
+
+%= $labels
+
+CMD ["/bin/bash", "-c"]
