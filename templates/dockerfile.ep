@@ -19,7 +19,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 %= $warning
-FROM <%= $from %> as builder
+FROM <%= $release->{$from} || $from %>
 MAINTAINER <%= $global->{author}->{name} . ' <' . $global->{author}->{mail} . '>' %>
 
 WORKDIR <%= $global->{app_folder} %>
@@ -29,7 +29,7 @@ RUN apk update && apk add --no-cache \\
 % for ($global->{os_packages}->@*) {
     <%= $_ %> \\
 % }
-  && cpanm --no-wget \\
+  && cpanm --no-wget -n \\
 % for ($global->{perl_modules}->@*) {
     <%= $_ %> \\
 % }
@@ -46,7 +46,7 @@ ENV <%= "$key $release->{env}{$key}" %>
 %   }
 % }
 % if ($release->{perl_modules}) {
-&& cpanm --no-wget \\
+&& cpanm --no-wget -n \\
 % for ($release->{perl_modules}->@*) {
     <%= $_ %> \\
 % }

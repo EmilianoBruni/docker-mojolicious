@@ -12,6 +12,7 @@
 #
 # UPDATES:
 #   AUTHOR          DATE        VERSION   COMMENTS
+#   Emiliano Bruni  2021-09-07  1.1       Update Minion::Backend::MongoDB to latest version
 #   Emiliano Bruni  2021-08-23  1.0       Initial Version
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -22,7 +23,7 @@
 #
 # do not edit it directly
 #
-FROM alpine:3.14 as builder
+FROM alpine:3.14
 MAINTAINER Emiliano Bruni <info@ebruni.it>
 
 WORKDIR /var/www
@@ -43,12 +44,12 @@ RUN apk update && apk add --no-cache \
     perl-file-find-rule \
     perl-number-compare \
     perl-text-glob \
-  && cpanm --no-wget \
+  && cpanm --no-wget -n \
     Mojolicious \
   && rm -r /root/.cpanm \
  && apk add --no-cache \
     musl-dev \
-&& cpanm --no-wget \
+&& cpanm --no-wget -n \
     Minion::Backend::MongoDB \
     Mojolicious::Plugin::Mongodbv2 \
     Mojolicious::Plugin::Minion \
@@ -69,6 +70,6 @@ LABEL org.opencontainers.image.licenses=Artistic-2.0
 LABEL org.opencontainers.image.source=https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion-mongodb/Dockerfile
 LABEL org.opencontainers.image.title=docker-mojolicious
 LABEL org.opencontainers.image.url=https://github.com/EmilianoBruni/docker-mojolicious
-LABEL org.opencontainers.image.version=1.0-minion-mongodb
+LABEL org.opencontainers.image.version=1.1-minion-mongodb
 
 CMD ["/bin/bash", "-c"]
