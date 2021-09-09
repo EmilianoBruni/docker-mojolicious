@@ -11,11 +11,18 @@ All images are based on alpine:3.14 and provide installed together with these Pe
 
 # Supported tags and respective Dockerfile links
 
-* Mojolicious: [1.2, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile) (size: **48MB**)
+* Mojolicious: [1.3, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile) (size: **48MB**)
 
-* Mojolicious: [1.2-minion, minion (minion/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion/Dockerfile) (size: **52MB**) with these additional Perl modules
+* Mojolicious: [1.3-minion, minion (minion/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion/Dockerfile) (size: **52MB**) with these additional Perl modules
 
 	* [Minion](https://metacpan.org/pod/Minion) v10.22.
+* Mojolicious: [1.3-minion-mongodb, minion-mongodb (minion-mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion-mongodb/Dockerfile) (size: **56.9MB**) with these additional Perl modules
+
+	* [Minion](https://metacpan.org/pod/Minion) v10.22,
+	* [Mojolicious::Plugin::Mongodbv2](https://metacpan.org/pod/Mojolicious::Plugin::Mongodbv2) v1.01.
+* Mojolicious: [1.3-mongodb, mongodb (mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/mongodb/Dockerfile) (size: **52.9MB**) with these additional Perl modules
+
+	* [Mojolicious::Plugin::Mongodbv2](https://metacpan.org/pod/Mojolicious::Plugin::Mongodbv2) v1.01.
 
 # How to use this image
 
@@ -43,6 +50,19 @@ To switch from development to production an run the application as daemon in
 the full featured non-blocking web server start it with
 
     $ docker container run -d --rm -v "$(pwd):/usr/src/app" -p 3000:3000 ebruni/mojolicious script/my_app prefork
+
+# Authors
+
+Emiliano Bruni (EB) <info@ebruni.it>
+
+# Changes
+
+| AUTHOR | DATE | VER. | COMMENTS |
+|:---|:---:|:---:|:---|
+| EB | 2021-09-09 | 1.3 | Add tags for Mojolicious::Plugin::Mongodbv2. |
+| EB | 2021-09-09 | 1.2 | Removed Minion::Backend::MongoDB. |
+| EB | 2021-09-07 | 1.1 | Update Minion::Backend::MongoDB to latest version. |
+| EB | 2021-08-23 | 1.0 | Initial Version. |
 
 # Source
 

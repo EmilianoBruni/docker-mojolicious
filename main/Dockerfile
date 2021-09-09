@@ -12,6 +12,7 @@
 #
 # UPDATES:
 #   AUTHOR  DATE        VER  COMMENTS
+#   EB      2021-09-09  1.3  Add tags for Mojolicious::Plugin::Mongodbv2.
 #   EB      2021-09-09  1.2  Removed Minion::Backend::MongoDB.
 #   EB      2021-09-07  1.1  Update Minion::Backend::MongoDB to latest version.
 #   EB      2021-08-23  1.0  Initial Version.
@@ -63,6 +64,6 @@ LABEL org.opencontainers.image.licenses=Artistic-2.0
 LABEL org.opencontainers.image.source=https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile
 LABEL org.opencontainers.image.title=docker-mojolicious
 LABEL org.opencontainers.image.url=https://github.com/EmilianoBruni/docker-mojolicious
-LABEL org.opencontainers.image.version=1.2
+LABEL org.opencontainers.image.version=1.3
 
 CMD ["/bin/bash", "-c"]

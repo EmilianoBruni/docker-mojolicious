@@ -53,6 +53,18 @@ the full featured non-blocking web server start it with
 
     $ docker container run -d --rm -v "$(pwd):/usr/src/app" -p 3000:3000 ebruni/mojolicious script/my_app prefork
 
+# Authors
+
+<%= $global->{author}->{name} . ' (' . $global->{author}->{abbr} . ') <' . $global->{author}->{mail} . '>' %>
+
+# Changes
+
+| AUTHOR | DATE | VER. | COMMENTS |
+|:---|:---:|:---:|:---|
+% for ($docker->{history}->@*) {
+| <%= $global->{author}->{abbr} %> | <%= $_->{date} %> | <%= $_->{version} %> | <%= $_->{comment} %> |
+% }
+
 # Source
 
 The source of this image on [GitHub](<%= $git->{repo} %>).
