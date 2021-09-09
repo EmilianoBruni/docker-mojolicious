@@ -1,7 +1,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-# AUTHOR  :  Emiliano Bruni <info@ebruni.it>
-# DATE    :  2021-07-28
+# AUTHORS :  Emiliano Bruni (EB) <info@ebruni.it>
+# DATE    :  2021-09-09
 # PURPOSE :
 #   Minimum components to run [Mojolicious](https://mojolicious.org), a real-time web framework and web development toolkit written in [Perl](https://www.perl.org).
 #
@@ -11,9 +11,10 @@
 #   docker build -t mojolicious .
 #
 # UPDATES:
-#   AUTHOR          DATE        VERSION   COMMENTS
-#   Emiliano Bruni  2021-09-07  1.1       Update Minion::Backend::MongoDB to latest version
-#   Emiliano Bruni  2021-08-23  1.0       Initial Version
+#   AUTHOR  DATE        VER  COMMENTS
+#   EB      2021-09-09  1.2  Removed Minion::Backend::MongoDB.
+#   EB      2021-09-07  1.1  Update Minion::Backend::MongoDB to latest version.
+#   EB      2021-08-23  1.0  Initial Version.
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -56,12 +57,12 @@ RUN apk update && apk add --no-cache \
 ARG NOW=not-set
 LABEL org.opencontainers.image.authors="Emiliano Bruni <info@ebruni.it>"
 LABEL org.opencontainers.image.created=$NOW
-LABEL org.opencontainers.image.description="Minimum components to run Mojolicious, a real-time web framework and web development toolkit written in Perl."
+LABEL org.opencontainers.image.description="minimum components to run Mojolicious, a real-time web framework and web development toolkit written in Perl."
 LABEL org.opencontainers.image.documentation=https://github.com/EmilianoBruni/docker-mojolicious/blob/master/README.pod
 LABEL org.opencontainers.image.licenses=Artistic-2.0
 LABEL org.opencontainers.image.source=https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile
 LABEL org.opencontainers.image.title=docker-mojolicious
 LABEL org.opencontainers.image.url=https://github.com/EmilianoBruni/docker-mojolicious
-LABEL org.opencontainers.image.version=1.1
+LABEL org.opencontainers.image.version=1.2
 
 CMD ["/bin/bash", "-c"]

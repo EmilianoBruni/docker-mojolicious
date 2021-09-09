@@ -1,9 +1,9 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-# AUTHOR  :  <%= $global->{author}->{name} . ' <' . $global->{author}->{mail} . '>' %>
-# DATE    :  2021-07-28
+# AUTHORS :  <%= $global->{author}->{name} . ' (' . $global->{author}->{abbr} . ') <' . $global->{author}->{mail} . '>' %>
+# DATE    :  <%= $docker->{history}->[0]->{date} %>
 # PURPOSE :
-#   <%= $global->{description} %>
+#   <%= ucfirst($global->{description}) %>
 #
 #   This image is published in docker hub with handle: <%= $docker->{image} %>
 #
@@ -11,9 +11,9 @@
 #   docker build -t <%= $docker->{project} %> .
 #
 # UPDATES:
-#   AUTHOR          DATE        VERSION   COMMENTS
+#   AUTHOR  DATE        VER  COMMENTS
 % for ($docker->{history}->@*) {
-#   <%= $global->{author}->{name} %>  <%= $_->{date} %>  <%= $_->{version} %>       <%= $_->{comment} %>
+#   <%= $global->{author}->{abbr} %>      <%= $_->{date} %>  <%= $_->{version} %>  <%= $_->{comment} %>
 % }
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1,11 +1,16 @@
+% use MetaCPAN::Client;
+% my $mcpan  = MetaCPAN::Client->new();
 %= $warning
 
-# What is Mojolicious?
+% my $Title = ucfirst($docker->{project});
 
-%= $global->{description}
+# What is <%= $Title %>?
 
-The images are based on <%= $from %> and provide Mojolicious installed together with
-%= join(",\n", map {"[$_](https://metacpan.org/pod/$_)"} $global->{perl_modules}->@*) . '.'
+%= $Title . " has " . $global->{description}
+
+All images are based on <%= $from %> and provide installed together with these Perl modules:
+
+%= join(",\n", map {"* [$_](https://metacpan.org/pod/$_) v" . $mcpan->module($_)->version} $global->{perl_modules}->@*) . '.'
 
 # Supported tags and respective Dockerfile links
 
@@ -13,13 +18,13 @@ The images are based on <%= $from %> and provide Mojolicious installed together 
 % my $cmde = $cmd->('latest');
 * Mojolicious: <%= $main->{dockerfile}->{link} %> (size: **<%= qx[$cmde] =~ s/\n$//r %>**)
 % $cmd = sub {my $tag = shift; return 'docker image ls --format "{{.Size}}" --filter "label=org.opencontainers.image.version=' . $global->{versions}->[0] . '-' . $tag . '" ' . $docker->{image} . ":$tag"};
+
 % for (grep !/main/, keys $releases->%*) {
 % $cmde = $cmd->($_);
-* Mojolicious: <%= $releases->{$_}->{dockerfile}->{link} %> (size: **<%= qx[$cmde] =~ s/\n$//r %>**)
-with library
-%= join(",\n", map {"\t* [$_](https://metacpan.org/pod/$_)"} $releases->{$_}->{perl_modules}->@*) . '.'
-%
-% }
+* Mojolicious: <%= $releases->{$_}->{dockerfile}->{link} %> (size: **<%= qx[$cmde] =~ s/\n$//r %>**) with these additional Perl modules
+
+%= join(",\n", map {"\t* [$_](https://metacpan.org/pod/$_) v" . $mcpan->module($_)->version} $releases->{$_}->{perl_modules}->@*) . '.'
+% } # for
 
 # How to use this image
 

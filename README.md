@@ -1,23 +1,21 @@
 <!-- this file is generated via docker-builder, do not edit it directly -->
 
+
 # What is Mojolicious?
 
-Minimum components to run [Mojolicious](https://mojolicious.org), a real-time web framework and web development toolkit written in [Perl](https://www.perl.org).
+Mojolicious has minimum components to run [Mojolicious](https://mojolicious.org), a real-time web framework and web development toolkit written in [Perl](https://www.perl.org).
 
-The images are based on alpine:3.14 and provide Mojolicious installed together with
-[Mojolicious](https://metacpan.org/pod/Mojolicious).
+All images are based on alpine:3.14 and provide installed together with these Perl modules:
+
+* [Mojolicious](https://metacpan.org/pod/Mojolicious) v9.21.
 
 # Supported tags and respective Dockerfile links
 
-* Mojolicious: [1.1, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile) (size: **48MB**)
-* Mojolicious: [1.1-minion-mongodb, minion-mongodb (minion-mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion-mongodb/Dockerfile) (size: **101MB**)
-with library
-	* [Minion::Backend::MongoDB](https://metacpan.org/pod/Minion::Backend::MongoDB),
-	* [Mojolicious::Plugin::Mongodbv2](https://metacpan.org/pod/Mojolicious::Plugin::Mongodbv2),
-	* [Mojolicious::Plugin::Minion](https://metacpan.org/pod/Mojolicious::Plugin::Minion).
-* Mojolicious: [1.1-minion, minion (minion/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion/Dockerfile) (size: **52MB**)
-with library
-	* [Minion](https://metacpan.org/pod/Minion).
+* Mojolicious: [1.2, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile) (size: **48MB**)
+
+* Mojolicious: [1.2-minion, minion (minion/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion/Dockerfile) (size: **52MB**) with these additional Perl modules
+
+	* [Minion](https://metacpan.org/pod/Minion) v10.22.
 
 # How to use this image
 
