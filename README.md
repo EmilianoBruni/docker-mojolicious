@@ -7,20 +7,20 @@ Mojolicious has minimum components to run [Mojolicious](https://mojolicious.org)
 
 All images are based on alpine:3.14 and provide installed together with these Perl modules:
 
-* [Mojolicious](https://metacpan.org/pod/Mojolicious) v9.21.
+* [Mojolicious](https://metacpan.org/pod/Mojolicious) v9.22.
 
 # Supported tags and respective Dockerfile links
 
-* Mojolicious: [1.3, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile) (size: **48MB**)
+* Mojolicious: [1.4, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile) (size: **48MB**)
 
-* Mojolicious: [1.3-minion, minion (minion/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion/Dockerfile) (size: **52MB**) with these additional Perl modules
+* Mojolicious: [1.4-minion-mongodb, minion-mongodb (minion-mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion-mongodb/Dockerfile) (size: **56.9MB**) with these additional Perl modules
 
-	* [Minion](https://metacpan.org/pod/Minion) v10.22.
-* Mojolicious: [1.3-minion-mongodb, minion-mongodb (minion-mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion-mongodb/Dockerfile) (size: **56.9MB**) with these additional Perl modules
-
-	* [Minion](https://metacpan.org/pod/Minion) v10.22,
+	* [Minion](https://metacpan.org/pod/Minion) v10.23,
 	* [Mojolicious::Plugin::Mongodbv2](https://metacpan.org/pod/Mojolicious::Plugin::Mongodbv2) v1.01.
-* Mojolicious: [1.3-mongodb, mongodb (mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/mongodb/Dockerfile) (size: **52.9MB**) with these additional Perl modules
+* Mojolicious: [1.4-minion, minion (minion/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion/Dockerfile) (size: **52MB**) with these additional Perl modules
+
+	* [Minion](https://metacpan.org/pod/Minion) v10.23.
+* Mojolicious: [1.4-mongodb, mongodb (mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/mongodb/Dockerfile) (size: **52.9MB**) with these additional Perl modules
 
 	* [Mojolicious::Plugin::Mongodbv2](https://metacpan.org/pod/Mojolicious::Plugin::Mongodbv2) v1.01.
 
@@ -59,6 +59,7 @@ Emiliano Bruni (EB) <info@ebruni.it>
 
 | AUTHOR | DATE | VER. | COMMENTS |
 |:---|:---:|:---:|:---|
+| EB | 2022-02-24 | 1.4 | Update to Mojolicious v. 9.22 |
 | EB | 2021-09-09 | 1.3 | Add tags for Mojolicious::Plugin::Mongodbv2. |
 | EB | 2021-09-09 | 1.2 | Removed Minion::Backend::MongoDB. |
 | EB | 2021-09-07 | 1.1 | Update Minion::Backend::MongoDB to latest version. |

@@ -29,11 +29,13 @@ RUN apk update && apk add --no-cache \\
 % for ($global->{os_packages}->@*) {
     <%= $_ %> \\
 % }
-  && cpanm --no-wget -n \\
+% if (scalar($global->{perl_modules}->@*)) {
+  && cpanm --no-wget \\
 % for ($global->{perl_modules}->@*) {
     <%= $_ %> \\
-% }
+% } # for ($global...)
   && rm -r /root/.cpanm \\
+% } # if (scalar($global...)
 % if ($release->{env}) {
 %   for my $key (sort keys $release->{env}->%*) {
 ENV <%= "$key $release->{env}{$key}" %>
