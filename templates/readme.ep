@@ -2,13 +2,13 @@
 % my $mcpan  = MetaCPAN::Client->new();
 %= $warning
 
-% my $Title = ucfirst($docker->{project});
+% my $Title = ucfirst($global->{title});
 
 # What is <%= $Title %>?
 
-%= $Title . " has " . $global->{description}
+%= $Title . " is a " . $global->{description}
 
-All images are based on <%= $from %> and provide installed together with these Perl modules:
+All images, unless explicitly defined, are based on [<%= $from %>](https://hub.docker.com/repository/docker/<%= $from=~s/:(.*?)$//r %>) and provide installed together with these Perl modules:
 
 %= join(",\n", map {"* [$_](https://metacpan.org/pod/$_) v" . $mcpan->module($_)->version} $global->{perl_modules}->@*) . '.'
 
@@ -16,19 +16,25 @@ All images are based on <%= $from %> and provide installed together with these P
 
 % my $cmd = sub {return 'docker image ls --format "{{.Size}}" --filter "label=org.opencontainers.image.version=' . $global->{versions}->[0] . '" ' . $docker->{image} . ':' . shift};
 % my $cmde = $cmd->('latest');
-* Mojolicious: <%= $main->{dockerfile}->{link} %> (size: **<%= qx[$cmde] =~ s/\n$//r %>**)
+* <%= $global->{title} %>: <%= $main->{dockerfile}->{link} %> (size: **<%= qx[$cmde] =~ s/\n$//r %>**)
 % $cmd = sub {my $tag = shift; return 'docker image ls --format "{{.Size}}" --filter "label=org.opencontainers.image.version=' . $global->{versions}->[0] . '-' . $tag . '" ' . $docker->{image} . ":$tag"};
 
 % for (grep !/main/, keys $releases->%*) {
 % $cmde = $cmd->($_);
-* Mojolicious: <%= $releases->{$_}->{dockerfile}->{link} %> (size: **<%= qx[$cmde] =~ s/\n$//r %>**) with these additional Perl modules
+* <%= $global->{title} %>: <%= $releases->{$_}->{dockerfile}->{link} %> (size: **<%= qx[$cmde] =~ s/\n$//r %>**) \
+% if($releases->{$_}->{from}) {
+based on [<%= $releases->{$_}->{from} %>](https://hub.docker.com/repository/docker/<%= $releases->{$_}->{from}=~s/:(.*?)$//r %>) \
+% }
+% if($releases->{$_}->{perl_modules}) {
+with these additional Perl modules
 
-%= join(",\n", map {"\t* [$_](https://metacpan.org/pod/$_) v" . $mcpan->module($_)->version} $releases->{$_}->{perl_modules}->@*) . '.'
+%= join(",\n", map {"  * [$_](https://metacpan.org/pod/$_) v" . $mcpan->module($_)->version} $releases->{$_}->{perl_modules}->@*) . '.'
+% }  # if
 % } # for
 
 # How to use this image
 
-## Example application
+## Generate an example application.
 
 Go to your code folder, call Mojolicious to create the basic application
 structure with you as the owner.

@@ -1,7 +1,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 # AUTHORS :  Emiliano Bruni (EB) <info@ebruni.it>
-# DATE    :  2022-02-24
+# DATE    :  2022-06-07
 # PURPOSE :
 #   Minimum components to run [Mojolicious](https://mojolicious.org), a real-time web framework and web development toolkit written in [Perl](https://www.perl.org).
 #
@@ -12,6 +12,7 @@
 #
 # UPDATES:
 #   AUTHOR  DATE        VER  COMMENTS
+#   EB      2022-06-07  1.5  Update to Mojolicious v. 9.26
 #   EB      2022-02-24  1.4  Update to Mojolicious v. 9.22
 #   EB      2021-09-09  1.3  Add tags for Mojolicious::Plugin::Mongodbv2.
 #   EB      2021-09-09  1.2  Removed Minion::Backend::MongoDB.
@@ -47,7 +48,7 @@ RUN apk update && apk add --no-cache \
     perl-file-find-rule \
     perl-number-compare \
     perl-text-glob \
-  && cpanm --no-wget \
+  && cpanm --no-wget -n \
     Mojolicious \
   && rm -r /root/.cpanm \
   && apk del \
@@ -65,6 +66,6 @@ LABEL org.opencontainers.image.licenses=Artistic-2.0
 LABEL org.opencontainers.image.source=https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile
 LABEL org.opencontainers.image.title=docker-mojolicious
 LABEL org.opencontainers.image.url=https://github.com/EmilianoBruni/docker-mojolicious
-LABEL org.opencontainers.image.version=1.4
+LABEL org.opencontainers.image.version=1.5
 
 CMD ["/bin/bash", "-c"]

@@ -23,14 +23,14 @@ FROM <%= $release->{$from} || $from %>
 MAINTAINER <%= $global->{author}->{name} . ' <' . $global->{author}->{mail} . '>' %>
 
 WORKDIR <%= $global->{app_folder} %>
-EXPOSE <%= $global->{publish} %>
+%= 'EXPOSE '. $global->{publish} if ($global->{publish});
 
 RUN apk update && apk add --no-cache \\
 % for ($global->{os_packages}->@*) {
     <%= $_ %> \\
 % }
 % if (scalar($global->{perl_modules}->@*)) {
-  && cpanm --no-wget \\
+  && cpanm --no-wget -n \\
 % for ($global->{perl_modules}->@*) {
     <%= $_ %> \\
 % } # for ($global...)
