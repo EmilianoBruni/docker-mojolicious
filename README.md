@@ -11,22 +11,22 @@ All images, unless explicitly defined, are based on [alpine:3.14](https://hub.do
 
 # Supported tags and respective Dockerfile links
 
-* docker-mojolicious: [1.6, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile) (size: ****)
+* docker-mojolicious: [1.6, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/main/Dockerfile) (size: **48MB**)
 
-* docker-mojolicious: [1.6-minion-mongodb, minion-mongodb (minion-mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion-mongodb/Dockerfile) (size: ****) based on [alpine:3.14](https://hub.docker.com/repository/docker/alpine) with these additional Perl modules
-
-  * [Minion](https://metacpan.org/pod/Minion) v10.25,
-  * [Mojolicious::Plugin::Mongodbv2](https://metacpan.org/pod/Mojolicious::Plugin::Mongodbv2) v1.01.
-* docker-mojolicious: [1.6-mysql, mysql (mysql/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/mysql/Dockerfile) (size: ****) based on [alpine:3.14](https://hub.docker.com/repository/docker/alpine) with these additional Perl modules
+* docker-mojolicious: [1.6-mysql, mysql (mysql/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/mysql/Dockerfile) (size: **76.9MB**) based on [alpine:3.14](https://hub.docker.com/repository/docker/alpine) with these additional Perl modules
 
   * [DBD::mysql](https://metacpan.org/pod/DBD::mysql) v4.050,
   * [DBIx::Class::Loader](https://metacpan.org/pod/DBIx::Class::Loader) v0.21,
   * [DBIx::Class::Schema::Loader](https://metacpan.org/pod/DBIx::Class::Schema::Loader) v0.07049,
   * [Mojolicious::Plugin::DBIC](https://metacpan.org/pod/Mojolicious::Plugin::DBIC) v0.005.
-* docker-mojolicious: [1.6-mongodb, mongodb (mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/mongodb/Dockerfile) (size: ****) based on [alpine:3.14](https://hub.docker.com/repository/docker/alpine) with these additional Perl modules
+* docker-mojolicious: [1.6-mongodb, mongodb (mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/mongodb/Dockerfile) (size: **52.9MB**) based on [alpine:3.14](https://hub.docker.com/repository/docker/alpine) with these additional Perl modules
 
   * [Mojolicious::Plugin::Mongodbv2](https://metacpan.org/pod/Mojolicious::Plugin::Mongodbv2) v1.01.
-* docker-mojolicious: [1.6-minion, minion (minion/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion/Dockerfile) (size: ****) based on [alpine:3.14](https://hub.docker.com/repository/docker/alpine) with these additional Perl modules
+* docker-mojolicious: [1.6-minion-mongodb, minion-mongodb (minion-mongodb/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion-mongodb/Dockerfile) (size: **57MB**) based on [alpine:3.14](https://hub.docker.com/repository/docker/alpine) with these additional Perl modules
+
+  * [Minion](https://metacpan.org/pod/Minion) v10.25,
+  * [Mojolicious::Plugin::Mongodbv2](https://metacpan.org/pod/Mojolicious::Plugin::Mongodbv2) v1.01.
+* docker-mojolicious: [1.6-minion, minion (minion/Dockerfile)](https://github.com/EmilianoBruni/docker-mojolicious/blob/master/minion/Dockerfile) (size: **52.1MB**) based on [alpine:3.14](https://hub.docker.com/repository/docker/alpine) with these additional Perl modules
 
   * [Minion](https://metacpan.org/pod/Minion) v10.25.
 
