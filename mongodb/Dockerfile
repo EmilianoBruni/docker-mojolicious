@@ -1,7 +1,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 # AUTHORS :  Emiliano Bruni (EB) <info@ebruni.it>
-# DATE    :  2022-07-07
+# DATE    :  2024-10-29
 # PURPOSE :
 #   Minimum components to run [Mojolicious](https://mojolicious.org), a real-time web framework and web development toolkit written in [Perl](https://www.perl.org).
 #
@@ -12,6 +12,7 @@
 #
 # UPDATES:
 #   AUTHOR  DATE        VER  COMMENTS
+#   EB      2024-10-29  2.0  Updated to alpine 3.20. Mojolicious to v. 9.38
 #   EB      2022-07-07  1.6  Add DBIC/mysql client support. Add tini package.
 #   EB      2022-06-07  1.5  Update to Mojolicious v. 9.26
 #   EB      2022-02-24  1.4  Update to Mojolicious v. 9.22
@@ -28,7 +29,7 @@
 #
 # do not edit it directly
 #
-FROM alpine:3.14
+FROM alpine:3.20
 MAINTAINER Emiliano Bruni <info@ebruni.it>
 
 WORKDIR /var/www
@@ -74,6 +75,6 @@ LABEL org.opencontainers.image.licenses=Artistic-2.0
 LABEL org.opencontainers.image.source=https://github.com/EmilianoBruni/docker-mojolicious/blob/master/mongodb/Dockerfile
 LABEL org.opencontainers.image.title=docker-mojolicious
 LABEL org.opencontainers.image.url=https://github.com/EmilianoBruni/docker-mojolicious
-LABEL org.opencontainers.image.version=1.6-mongodb
+LABEL org.opencontainers.image.version=2.0-mongodb
 
 CMD ["/bin/bash", "-c"]
